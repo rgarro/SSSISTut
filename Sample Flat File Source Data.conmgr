@@ -19,7 +19,7 @@
           DTS:DataType="4"
           DTS:TextQualified="True"
           DTS:ObjectName="AverageRate"
-          DTS:DTSID="{C967EF02-AB8D-4EE8-9A9D-99FE23A5FE31}"
+          DTS:DTSID="{3A949DCC-774C-43D9-9AF4-8F6AE1A0221D}"
           DTS:CreationName="" />
         <DTS:FlatFileColumn
           DTS:ColumnType="Delimited"
@@ -28,7 +28,7 @@
           DTS:DataType="130"
           DTS:TextQualified="True"
           DTS:ObjectName="CurrencyID"
-          DTS:DTSID="{170FBFCC-3C50-4205-9563-0CDCD46AB395}"
+          DTS:DTSID="{748ED3D4-80EC-42B0-ACE0-F535FCBB4095}"
           DTS:CreationName="" />
         <DTS:FlatFileColumn
           DTS:ColumnType="Delimited"
@@ -36,7 +36,7 @@
           DTS:DataType="133"
           DTS:TextQualified="True"
           DTS:ObjectName="CurrencyDate"
-          DTS:DTSID="{6708863B-ED3C-4885-BD92-A333A0220808}"
+          DTS:DTSID="{03A3DF97-0E95-4C7A-BE33-A1CE445B16A9}"
           DTS:CreationName="" />
         <DTS:FlatFileColumn
           DTS:ColumnType="Delimited"
@@ -44,7 +44,7 @@
           DTS:DataType="4"
           DTS:TextQualified="True"
           DTS:ObjectName="EndOfDayRate"
-          DTS:DTSID="{89A774D3-D6D0-4762-8EF0-E68DA50712E6}"
+          DTS:DTSID="{FD54F856-686F-403C-8399-915BE216D507}"
           DTS:CreationName="" />
       </DTS:FlatFileColumns>
     </DTS:ConnectionManager>

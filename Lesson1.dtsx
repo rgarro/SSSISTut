@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Lesson1"
   DTS:PackageType="5"
-  DTS:VersionBuild="14"
-  DTS:VersionGUID="{AFA8BCB7-02A0-4F24-B4CA-C5B3FF73A086}">
+  DTS:VersionBuild="17"
+  DTS:VersionGUID="{F32924D5-611D-4889-BD39-17D51F2EC688}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -207,8 +207,8 @@
                   description="Especifica la instrucción SQL que genera la tabla de búsqueda."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT * FROM Sales.Currency
-WHERE CurrencyCode 
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT * FROM dbo.DimCurrency
+ WHERE CurrencyAlternateKey 
 IN('ARS', 'AUD', 'BRL', 'CAD', 'CNY',
     'DEM', 'EUR', 'FRF', 'GBP', 'JPY',
     'MXN', 'SAR', 'USD', 'VEB')</property>
@@ -248,7 +248,7 @@ IN('ARS', 'AUD', 'BRL', 'CAD', 'CNY',
                 <property
                   dataType="System.String"
                   description="Indica si se debe hacer referencia a metadatos en formato XML."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="CurrencyCode" dataType="DT_WSTR" length="3" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Name" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ModifiedDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="CurrencyKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CurrencyAlternateKey" dataType="DT_WSTR" length="3" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CurrencyName" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   containsID="true"
                   dataType="System.String"
@@ -266,8 +266,8 @@ IN('ARS', 'AUD', 'BRL', 'CAD', 'CNY',
               <connections>
                 <connection
                   refId="Package\Extract Sample Currency Data\Lookup Currency Key.Connections[OleDbConnection]"
-                  connectionManagerID="{0D8744DF-69FA-41C9-A174-C6A06F1EF121}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[PHCR009LTTIRGS.AdventureWorks2019]"
+                  connectionManagerID="{E342A9A1-1979-4BD0-83E0-7EBBB9AC7104}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.AdventureWorks2019]"
                   description="Administrador de conexiones utilizado para obtener acceso a los datos de búsqueda."
                   name="OleDbConnection" />
               </connections>
@@ -275,29 +275,6 @@ IN('ARS', 'AUD', 'BRL', 'CAD', 'CNY',
                 <input
                   refId="Package\Extract Sample Currency Data\Lookup Currency Key.Inputs[Entrada de búsqueda]"
                   name="Entrada de búsqueda">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Extract Sample Currency Data\Lookup Currency Key.Inputs[Entrada de búsqueda].Columns[CurrencyCode]"
-                      cachedDataType="wstr"
-                      cachedLength="3"
-                      cachedName="CurrencyID"
-                      errorOrTruncationOperation="Copiar columna"
-                      lineageId="Package\Extract Sample Currency Data\Extract Sample Curency Data.Outputs[Salida de origen de archivo plano].Columns[CurrencyID]"
-                      name="CurrencyCode"
-                      truncationRowDisposition="FailComponent"
-                      usageType="readWrite">
-                      <properties>
-                        <property
-                          dataType="System.Null"
-                          description="Especifica la columna de la tabla de referencia con la que se combina una columna."
-                          name="JoinToReferenceColumn" />
-                        <property
-                          dataType="System.String"
-                          description="Especifica la columna de la tabla de referencia de la que se copia una columna."
-                          name="CopyFromReferenceColumn">CurrencyCode</property>
-                      </properties>
-                    </inputColumn>
-                  </inputColumns>
                   <externalMetadataColumns />
                 </input>
               </inputs>
@@ -309,6 +286,22 @@ IN('ARS', 'AUD', 'BRL', 'CAD', 'CNY',
                   exclusionGroup="1"
                   name="Salida de entradas coincidentes de búsqueda"
                   synchronousInputId="Package\Extract Sample Currency Data\Lookup Currency Key.Inputs[Entrada de búsqueda]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extract Sample Currency Data\Lookup Currency Key.Outputs[Salida de entradas coincidentes de búsqueda].Columns[CurrencyKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copiar columna"
+                      lineageId="Package\Extract Sample Currency Data\Lookup Currency Key.Outputs[Salida de entradas coincidentes de búsqueda].Columns[CurrencyKey]"
+                      name="CurrencyKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica la columna de la tabla de referencia de la que se copia una columna."
+                          name="CopyFromReferenceColumn">CurrencyKey</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
                   <externalMetadataColumns />
                 </output>
                 <output
@@ -506,13 +499,17 @@ IN('ARS', 'AUD', 'BRL', 'CAD', 'CNY',
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="185,42"
+          Id="Package\Extract Sample Currency Data\Lookup Currency Key"
+          TopLeft="84,129" />
+        <NodeLayout
           Size="355,61"
           Id="Package\Extract Sample Currency Data\Extract Sample Curency Data"
           TopLeft="19,8" />
         <NodeLayout
-          Size="185,42"
-          Id="Package\Extract Sample Currency Data\Lookup Currency Key"
-          TopLeft="84,129" />
+          Size="163,42"
+          Id="Package\Extract Sample Currency Data\Lookup Date Key"
+          TopLeft="347,173" />
         <EdgeLayout
           Id="Package\Extract Sample Currency Data.Paths[Salida de origen de archivo plano]"
           TopLeft="196.5,69">
@@ -547,10 +544,6 @@ IN('ARS', 'AUD', 'BRL', 'CAD', 'CNY',
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="163,42"
-          Id="Package\Extract Sample Currency Data\Lookup Date Key"
-          TopLeft="347,173" />
         <EdgeLayout
           Id="Package\Extract Sample Currency Data.Paths[Salida de entradas coincidentes de búsqueda]"
           TopLeft="269,150">
