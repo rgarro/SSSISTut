@@ -1,4 +1,4 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="2/24/2022 2:53:31 PM"
@@ -8,11 +8,11 @@
   DTS:DTSID="{44CF830B-91ED-4FDB-8F51-1BD52E0A8358}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.180"
-  DTS:LocaleID="9"
+  DTS:LocaleID="1033"
   DTS:ObjectName="Lesson1"
   DTS:PackageType="5"
-  DTS:VersionBuild="33"
-  DTS:VersionGUID="{E1AA9E4D-A67C-413B-9118-D722A5DDC745}">
+  DTS:VersionBuild="30"
+  DTS:VersionGUID="{035B2F60-CC52-4CA7-974E-223A7BE19826}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -37,7 +37,7 @@
       DTS:Description="Tarea Flujo de datos"
       DTS:DTSID="{A44E0AFE-A5B5-4BD0-99EA-72357B6F3888}"
       DTS:ExecutableType="Microsoft.Pipeline"
-      DTS:LocaleID="9"
+      DTS:LocaleID="-1"
       DTS:ObjectName="Extract Sample Currency Data">
       <DTS:Variables />
       <DTS:ObjectData>
