@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Lesson1"
   DTS:PackageType="5"
-  DTS:VersionBuild="17"
-  DTS:VersionGUID="{F32924D5-611D-4889-BD39-17D51F2EC688}">
+  DTS:VersionBuild="18"
+  DTS:VersionGUID="{3FFC919E-14F1-4EA5-9201-EB70C52B86FF}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -489,7 +489,7 @@ IN('ARS', 'AUD', 'BRL', 'CAD', 'CNY',
         <NodeLayout
           Size="227,42"
           Id="Package\Extract Sample Currency Data"
-          TopLeft="80.5,86.5" />
+          TopLeft="37.5,25.5" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -510,40 +510,6 @@ IN('ARS', 'AUD', 'BRL', 'CAD', 'CNY',
           Size="163,42"
           Id="Package\Extract Sample Currency Data\Lookup Date Key"
           TopLeft="347,173" />
-        <EdgeLayout
-          Id="Package\Extract Sample Currency Data.Paths[Salida de origen de archivo plano]"
-          TopLeft="196.5,69">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-20,60"
-              Start="0,0"
-              End="-20,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,26"
-                    Point2="0,30"
-                    Point3="-4,30" />
-                  <mssgle:LineSegment
-                    End="-16,30" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-16,30"
-                    Point2="-20,30"
-                    Point3="-20,34" />
-                  <mssgle:LineSegment
-                    End="-20,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\Extract Sample Currency Data.Paths[Salida de entradas coincidentes de búsqueda]"
           TopLeft="269,150">
@@ -580,6 +546,40 @@ IN('ARS', 'AUD', 'BRL', 'CAD', 'CNY',
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Extract Sample Currency Data.Paths[Salida de origen de archivo plano]"
+          TopLeft="196.5,69">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-20,60"
+              Start="0,0"
+              End="-20,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="-4,30" />
+                  <mssgle:LineSegment
+                    End="-16,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-16,30"
+                    Point2="-20,30"
+                    Point3="-20,34" />
+                  <mssgle:LineSegment
+                    End="-20,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -589,7 +589,7 @@ IN('ARS', 'AUD', 'BRL', 'CAD', 'CNY',
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -599,7 +599,7 @@ IN('ARS', 'AUD', 'BRL', 'CAD', 'CNY',
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
